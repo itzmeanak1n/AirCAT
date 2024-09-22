@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Rooms</title>
+</head>
+<body>
+    <h1>My Rooms</h1>
+<ul>
+    <% if (rooms.length > 0) { %>
+        <% rooms.forEach(room => { %>
+            <li>
+                <h2><%= room.room_name %></h2>
+                <p><%= room.description %></p>
+                <p>Price per night: <%= room.price_per_night %></p>
+                <p>Availability: <%= room.availability === 1 ? 'Available' : 'Not Available' %></p>
+
+                <!-- ปุ่มแก้ไขห้อง เปลี่ยนจาก button เป็น a -->
+                <a href="/editRoom/<%= room.room_id %>">
+                    <button>Edit</button>
+                </a>
+            </li>
+        <% }) %>
+    <% } else { %>
+        <p>You have not added any rooms yet.</p>
+    <% } %>
+</ul>
+</body>
+</html>

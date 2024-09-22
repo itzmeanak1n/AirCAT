@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Owner Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, <span id="displayName"><%= user.displayName %></span>!</h1>
+    <p>Here is your dashboard.</p>
+    <button id="logoutButton">Logout</button>
+
+    <form action="/rooms/addRoom" method="POST">
+        <label for="room_name">Room Name:</label>
+        <input type="text" id="room_name" name="room_name" required> <br>
+    
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+    
+        <label for="price_per_night">Price per night:</label>
+        <input type="number" id="price_per_night" name="price_per_night" required><br>
+    
+        <label for="availability">Available:</label>
+        <input type="checkbox" id="availability" name="availability" value="1"><br>
+        <input type="hidden" name="availability" value="0">
+        
+    
+        <button type="submit">Add Room</button>
+    </form>
+
+    <br><br>
+    <a href="/rooms/myRoom">
+        <button type="button">My Rooms</button>
+    </a>
+    
+    <script>
+        // ฟังก์ชันสำหรับ logout
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            window.location.href = '/logout';
+        });
+    </script>
+</body>
+</html>

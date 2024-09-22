@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Room</title>
+</head>
+<body>
+    <h1>Edit Room</h1>
+    <form action="/editRoom/<%= room.room_id %>" method="POST">
+        <label for="room_name">Room Name:</label>
+        <input type="text" id="room_name" name="room_name" value="<%= room.room_name %>" required>
+    
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required><%= room.description %></textarea>
+    
+        <label for="price_per_night">Price per Night:</label>
+        <input type="number" id="price_per_night" name="price_per_night" value="<%= room.price_per_night %>" required>
+    
+        <label for="availability">Availability:</label>
+        <input type="checkbox" id="availability" name="availability" value="1" <%= room.availability === 1 ? 'checked' : '' %> > Available
+    
+        <button type="submit">Save Changes</button>
+    </form>
+    
+
+    <a href="/myRoom">Back to My Rooms</a> <!-- Link เพื่อกลับไปยังหน้าแสดงห้อง -->
+</body>
+</html>
